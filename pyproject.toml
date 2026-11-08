@@ -1,0 +1,50 @@
+[project]
+name = "querypilot-ai"
+version = "0.1.0"
+description = "Agentic AI-powered analytics platform using OpenAI, LangGraph and PostgreSQL."
+requires-python = ">=3.12"
+dependencies = [
+    "openai",
+    "langgraph",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic-settings",
+    "python-dotenv",
+    "sqlalchemy",
+    "psycopg[binary]",
+    "sqlglot",
+    "pandas",
+    "plotly",
+    "streamlit",
+    "faker",
+    "tenacity",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "httpx",
+    "ruff",
+    "mypy",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "UP",
+    "B",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
